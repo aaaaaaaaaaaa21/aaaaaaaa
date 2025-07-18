@@ -105,4 +105,4 @@ if st.button("제출하기"):
     
 if st.session_state.count >= 31:
     if st.button("다시하기"):
-         st.experimental_rerun()
+         st.session_state.count = 0

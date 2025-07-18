@@ -93,7 +93,7 @@ if st.button("제출하기"):
          st.error("귀하가 31(또는 그 이상)을 말해 실패하였습니다.")
          st.seesion_state.game_over = 1
     comp_choice = choice()
-    if st.seesion_state.count < 31
+    if st.seesion_state.count < 31:
         st.session_state.count = st.session_state.count + comp_choice
         st.success(f"컴퓨터가 {comp_choice}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다")
     else:

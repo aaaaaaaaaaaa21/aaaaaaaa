@@ -83,7 +83,7 @@ say = st.slider("말할 숫자",1,3,2)
 if st.button("제출하기"):
     st.session_state.count = st.session_state.count + say
     st.success(f"귀하가 {say}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다.")
-    time.sleep(3)
+    
     if st.session_state.count >= 31:
          st.error("귀하가 31(또는 그 이상)을 말해 실패하였습니다.")
          if st.button("다시하기"):

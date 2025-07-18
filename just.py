@@ -79,7 +79,7 @@ if "count" not in st.session_state:
     st.session_state.count = 0
 
 if "game_over" not in st.session_state:
-    st.session_state.count = False
+    st.session_state.count = 0
 
 st.set_page_config(page_title="31을 말하면 지는 게임", layout="centered", page_icon="두더지.png")
 st.markdown("**게임 규칙**")
@@ -92,13 +92,13 @@ if st.button("제출하기"):
     
     if st.session_state.count >= 31:
          st.error("귀하가 31(또는 그 이상)을 말해 실패하였습니다.")
-         st.seesion_state.game_over = True
+         st.seesion_state.game_over = 1
     comp_choice = choice()
     st.session_state.count = st.session_state.count + comp_choice
     st.success(f"컴퓨터가 {comp_choice}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다")
     if st.session_state.count >= 31:
-        st.seesion_state.game_over = True
+        st.seesion_state.game_over = 1
         st.error("컴퓨터가 31(또는 그 이상)을 말해 성공하였습니다.")
-if st.seesion_state.game_over == True:
+if st.seesion_state.game_over == 1:
     if st.button("다시하기"):
          st.experimental_rerun()

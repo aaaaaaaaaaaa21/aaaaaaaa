@@ -96,7 +96,6 @@ if st.button("제출하기"):
     if st.seesion_state.count < 31:
         st.session_state.count = st.session_state.count + comp_choice
         st.success(f"컴퓨터가 {comp_choice}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다")
-    else:
 
     if st.session_state.count >= 31:
         st.seesion_state.game_over = 1

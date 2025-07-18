@@ -74,6 +74,21 @@ def choice():
     if st.session_state.count == 30:
         return 1
 
+def set_win():
+    st.session_state.count = st.session_state.count + say
+    st.success(f"귀하가 {say}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다.")
+    
+    if st.session_state.count >= 31:
+         st.error("귀하가 31(또는 그 이상)을 말해 실패하였습니다.")
+         return
+    comp_choice = choice()
+    if st.session_state.count < 31:
+        st.session_state.count = st.session_state.count + comp_choice
+        st.success(f"컴퓨터가 {comp_choice}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다")
+
+    if st.session_state.count >= 31:
+        st.success("컴퓨터가 31(또는 그 이상)을 말해 성공하였습니다.")
+        return
 
 if "count" not in st.session_state:
     st.session_state.count = 0
@@ -86,22 +101,8 @@ st.markdown("31을 말하면 집니다")
 say = st.slider("말할 숫자",1,3,2)
 
 if st.button("제출하기"):
-    st.session_state.count = st.session_state.count + say
-    st.success(f"귀하가 {say}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다.")
+    set_win()
     
-    if st.session_state.count >= 31:
-         st.error("귀하가 31(또는 그 이상)을 말해 실패하였습니다.")
-         st.session_state.game_over = 1
-         break
-    comp_choice = choice()
-    if st.session_state.count < 31:
-        st.session_state.count = st.session_state.count + comp_choice
-        st.success(f"컴퓨터가 {comp_choice}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다")
-
-    if st.session_state.count >= 31:
-        st.session_state.game_over = 1
-        st.success("컴퓨터가 31(또는 그 이상)을 말해 성공하였습니다.")
-        break
 if st.session_state.count >= 31:
     if st.button("다시하기"):
          st.experimental_rerun()

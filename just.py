@@ -98,8 +98,8 @@ if st.button("제출하기"):
         st.success(f"컴퓨터가 {comp_choice}를 말해 현재 숫자는 {st.session_state.count}이 되었습니다")
 
     if st.session_state.count >= 31:
-        st.seesion_state.game_over = 1
+        st.sesion_state.game_over = 1
         st.error("컴퓨터가 31(또는 그 이상)을 말해 성공하였습니다.")
-if st.seesion_state.count == 31:
+if st.sesion_state.count == 31:
     if st.button("다시하기"):
          st.experimental_rerun()

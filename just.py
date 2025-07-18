@@ -71,7 +71,7 @@ def choice():
                 return 1
     if st.session_state.count == 0:
          return 2
-    if st.seesion_state.count == 30:
+    if st.session_state.count == 30:
         return 1
 
 

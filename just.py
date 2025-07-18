@@ -95,5 +95,5 @@ if st.button("제출하기"):
     if st.session_state.count >= 31:
          st.error("컴퓨터가 31(또는 그 이상)을 말해 성공하였습니다.")
          if st.button("다시하기"):
-              st.success("초기화가 완료되었습니다")
-              st.session_state.count = 0
+             st.session_state.count = 0
+             st.success("초기화가 완료되었습니다")

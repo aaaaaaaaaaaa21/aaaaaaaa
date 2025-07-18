@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import random
 
 def choice():
     if st.session_state.count < 6:
@@ -70,6 +71,8 @@ def choice():
                 return 1
     if st.session_state.count == 0:
          return 2
+    if st.seesion_state.count == 30:
+        return 1
 
 
 if "count" not in st.session_state:
